@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.7.45">
+  <meta charset="UTF-8">
+  <title>map making</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <h1>commands</h1>
+    <p>This page lays out the specification for commands in frag-x</p>
+    <h2>The basics</h2>
+    <p>When sending a message there are two different types, the first is a normal message, this is the kind of message you want other players in the game to see. The other type of message is one that is a command, these are run to change something about the game.</p>
+    <p>When sending commands there are two different types of commands, there are client commands and server commands. To run a client command you must prefix your command like so: <code>-c &lt;command&gt;</code>, similarly for server commands you just do <code>-s &lt;command&gt;</code> </p>
+    <h2>client commands</h2>
+    <table style="width:100%">
+      <tr>
+        <th>command</th>
+        <th>what it does</th>
+      </tr>
+      <tr>
+        <td><code>/sens &lt;NUMBER&gt;</code></td>
+        <td>changes your sensitivity to <code>&lt;NUMBER&gt;</code></td>
+      </tr>
+    </table>
+    <h2>server commands</h2>
+    <table style="width:100%">
+      <tr>
+        <td><code>/map_vote &lt;MAP NAME&gt;</code></td>
+        <td>starts a map vote, note: MAP NAME doesn't contain the extension</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

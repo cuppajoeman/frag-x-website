@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.7.45">
+  <meta charset="UTF-8">
+  <title>map making</title>
+  <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>how frag-x works</h1>
+        <ul>
+            <li>a server is started</li>
+            <ul>
+                <li>it initializes a simulation which can be accessed globally</li>
+                <li>it starts a thread called <code>listener</code> which waits for new players to join</li>
+                <ul>
+                    <li>this thread spawns new threads called <code>client_listener</code> for each connected player which has access to the simulations <code>input_messages</code> (a thread safe queue)</li>
+                </ul>
+                <li>it starts a thread called <code>server_messager</code> which has access to the simulations <code>output_messages</code>, which is also a thread safe queue</li>
+            </ul>
+            <li>a client is launched</li>
+            <ul>
+                <li>it makes a connection to the server</li>
+                <li>the <code>listener</code> thread adds a player to the server simulation and starts a <code>client_listener</code> thread</li>
+                <li>the client starts receiving snapshots of the game simulation and is able to draw the player on the screen</li>
+            </ul>
+            <li>you are interacting with the game using input devices and the game state is changing</li>
+            <ul>
+                <li>the client samples these input devices and sends it over as a <code>PlayerStateMessage</code></li>
+                <li>the server's client listener thread gets a <code>PlayerStateMessage</code> and adds it the <code>Simulation</code>'s  <code>input_messages</code></li>
+                <li>the simulation is ticking at a rate defined by <code>SERVER_TICK_RATE_HZ</code>, the way we perform a tick in general is by calling a method that we define called <code>step</code></li>
+                <ul>
+                    <li>for example, at the top level of the server there is something that calls the global simulations <code>step</code> method</li>
+                    <ul>
+                        <li>this method in turn will call step functions of the objects that are involved in the simulation, these objects are all children of <code>SimulationObject</code></li>
+                    </ul>
+                </ul>
+                <li>after the <code>step</code> function is done, the server will have consumed the information that you provided from your keyboard and mouse, and determined what the game should now look like, it then adds a <code>GameStateMessage</code> to <code>output_messages</code></li>
+                <ul>
+                    <li>a <code>GameStateMessage</code> is just enough information to draw the player on the client</li>
+                </ul>
+                <li>the <code>server_messager</code> thread has been waiting for something to appear in <code>output_messages</code>, and so now it can <code>get</code> from that queue and sends it across the network back to the player</li>
+                <li>the client stores this message as a <code>simulation_state</code>, and it is drawn to the screen at a rate of <code>FPS</code> until a new <code>simulation_state</code> appears</li>
+            </ul>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.7.45">
+  <meta charset="UTF-8">
+  <title>map making</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <h1>map making</h1>
+    <p>This page lays out the specification for making maps for
+    frag-x</p>
+    <h2>The basics</h2>
+    <p>A map in frag-x is a png file, this is to promote map making
+    by making building maps quite simple. If you have an image
+    editor you can make maps for frag-x</p>
+    <p>The standard map size is 160x90, but in the future we can
+    suppor maps of any size</p>
+    <p>Personally, to make maps I use gimp with the symmetry mode
+    set to "center"</p>
+    <p>The way we specify types of blocks in the game is by color,
+    there is a reference table later on, but a quick example would
+    be that solid walls are black and empty space is white.</p>
+    <p>Each game mode in frag-x may have certain objects that are
+    unique to that game mode, for example, capture the flag has a
+    flag, wherease skill duel does not have this object.</p>
+    <ul>
+      <li>a map must be designed with a certain game mode in mind, therefore a map is for a certain game mode.</li>
+      <li>m1: the first map ever created for frag-x</li>
+      <li> learn about <a href="maps.html">map making</a></li>
+    <h2>general blocks</h2>
+    <table style="width:100%">
+      <tr>
+        <th>block type</th>
+        <th>color</th>
+      </tr>
+      <tr>
+        <td>space</td>
+        <td style="color: rgb(255, 255, 255)">255, 255, 255</td>
+      </tr>
+      <tr>
+        <td>wall</td>
+        <td style="color: rgb(50, 50, 50)">0, 0, 0</td>
+      </tr>
+    </table>
+    <h2>death match gameplay</h2>
+    <table style="width:100%">
+      <tr>
+        <td>player spawn</td>
+        <td style="color: rgb(100, 100, 100)">100, 100, 100</td>
+      </tr>
+    </table>
+    <h2>team based gameplay</h2>
+    <table style="width:100%">
+      <tr>
+        <td>red team barrier</td>
+        <td style="color: rgb(255, 0, 0)">255, 0, 0</td>
+      </tr>
+      <tr>
+        <td>red team flag</td>
+        <td style="color: rgb(255, 100, 100)">255, 100, 100</td>
+      </tr>
+      <tr>
+        <td>red team spawn</td>
+        <td style="color: rgb(255, 255, 0)">255, 255, 0</td>
+      </tr>
+      <tr>
+        <td>blue team barrier</td>
+        <td style="color: rgb(0, 0, 255)">0, 0, 255</td>
+      </tr>
+      <tr>
+        <td>blue team spawn</td>
+        <td style="color: rgb(0, 255, 255)">0, 255, 255</td>
+      </tr>
+      <tr>
+        <td>blue team flag</td>
+        <td style="color: rgb(100, 100, 255)">100, 100, 255</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

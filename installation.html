@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.7.45">
+  <meta charset="UTF-8">
+  <title>map making</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <h1>installation</h1>
+    <h2>cloning through git (more difficult, easier to update, recommended)</h2>
+    <p>The game has been designed in python, so we'll need to get that. Additionally, before you can get the game you will need some dependencies, we use the python package Pillow so that we can load in maps (which are images), and pygame to render the graphics for the client. If you work with computers often this may be enough information for you, otherwise continue following the instructions.</p>
+    <ul>
+    	<li>windows</li>
+        <ul>
+            <li>preparing</li>
+            <ul>
+                <li>you can get the newest version of python from here: <code>https://www.python.org/downloads/</code></li>
+                <li>once you have python, you can install both of the dependencies like this: <code>py -m pip install -U pygame Pillow --user</code> this will install globally</li>
+            </ul>
+            <li>getting the game</li>
+            <ul>
+                <li>install git bash</li>
+                <li>launch it and then type <code>cd ~/Desktop</code></li>
+                <li>now clone the repository, <code>git clone https://gitlab.com/cuppajoeman/frag-x.git</code></li>
+                <li>to run the game simply run <code>py client.py</code></li>
+            </ul>
+        </ul>
+        <li>mac</li>
+        <ul>
+            <li>preparing, follow windows instructions but instead of typing <code>py</code> type <code>python</code></li>
+            <li>getting the game</li>
+            <ul>
+                <li>install git there are instructions <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a></li>
+                <li>once git is installed you can clone the repository: <code>git clone https://gitlab.com/cuppajoeman/frag-x.git</code></li>
+                <li>to run the game simply run <code>python client.py</code></li>
+            </ul>
+        </ul>
+        <li>linux</li>
+        <ul>
+            <li>install python and the two python packages Pillow and pygame, clone https://gitlab.com/cuppajoeman/frag-x.git and run client.py</li>
+        </ul>
+    </ul>
+  </div>
+</body>
+</html>
